@@ -118,7 +118,7 @@ if (mediaQuery1.matches) {
   <div class="member_img">
     <img src="./media/member1.png" alt="Besecure Member" />
   </div>
-  <h3 class="member_name">MOHAMED CHADLY</h3>
+  <h3 class="member_name">OUSSAMA FANNOUCH</h3>
   <p class="member_profession">Club President</p>
   <ul class="member_social_list flex">
     <li class="member_social flex">
