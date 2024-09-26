@@ -27,13 +27,41 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <!-- MAIN CSS FILE -->
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+      function createCyberParticles() {
+        const particleCount = 300;
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'cyber-particle';
+          particle.style.left = `${Math.random() * 100}vw`;
+          particle.style.top = `${Math.random() * 100}vh`;
+          particle.style.opacity = Math.random();
+          particle.style.animation = `float ${5 + Math.random() * 10}s linear infinite`;
+          document.body.appendChild(particle);
+        }
+      }
+      
+      function animateParticles() {
+        const particles = document.querySelectorAll('.cyber-particle');
+        particles.forEach(particle => {
+          particle.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+        });
+        requestAnimationFrame(animateParticles);
+      }
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        createCyberParticles();
+        animateParticles();
+      });
+      </script>
+      
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
     <script type="text/javascript">
       (function () {
-        emailjs.init("GUxTsYk6ASIsgoy4R");
+        emailjs.init("i87l1ehGigmFyXCUL");
       })();
     </script>
   </head>
@@ -180,17 +208,17 @@
             <div class="member_img">
               <img src="./media/member2.png" alt="Besecure Member" />
             </div>
-            <h3 class="member_name">WALID DHIMEN</h3>
-            <p class="member_profession">Design and video making Unit</p>
+            <h3 class="member_name">IMAD AFIF</h3>
+            <p class="member_profession">VICE-PRESIDENT</p>
             <ul class="member_social_list flex">
               <li class="member_social flex">
-                <a target="_blank" href="mailto:wdhimen@gmail.com">
-                  <i class="fa-regular fa-envelope"></i
+                <a target="_blank" href="mailto:imafif03@gmail.com">
+                  <i class="fa-regular fa-envelope"></i 
                 ></a>
               </li>
               <li class="member_social flex">
                 <a
-                  href="https://www.instagram.com/wiwo445/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+                  href="https://www.instagram.com/im4d_03?igsh=ZzV0bng3dHdmaTFv"
                   target="_blank"
                   ><i class="fa-brands fa-instagram"></i
                 ></a>
@@ -198,7 +226,7 @@
               <li class="member_social flex">
                 <a
                   target="_blank"
-                  href="https://www.linkedin.com/in/walid-dhimen-54bb28291/"
+                  href="https://www.linkedin.com/in/imad-afif-36b98b222?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                   ><i class="fa-brands fa-linkedin-in"></i
                 ></a>
               </li>
@@ -208,17 +236,18 @@
             <div class="member_img">
               <img src="./media/member1.png" alt="Besecure Member" />
             </div>
-            <h3 class="member_name">MOHAMED CHADLY</h3>
+            <h3 class="member_name">FANNOUCH OUSSAMA</h3>
             <p class="member_profession">Club President</p>
             <ul class="member_social_list flex">
               <li class="member_social flex">
-                <a target="_blank" href="mailto:mohamedchadly2021@gmail.com">
+                <a target="_blank" href="mailto:
+                Oussamafannouch@gmail.com ">
                   <i class="fa-regular fa-envelope"></i
                 ></a>
               </li>
               <li class="member_social flex">
                 <a
-                  href="https://www.instagram.com/mohamed_chadlyy/"
+                  href="https://www.instagram.com/oussamafannouch"
                   target="_blank"
                   ><i class="fa-brands fa-instagram"></i
                 ></a>
@@ -226,7 +255,7 @@
               <li class="member_social flex">
                 <a
                   target="_blank"
-                  href="https://www.linkedin.com/in/mohamed-chadly-74ab54222/"
+                  href="https://www.linkedin.com/in/oussamafannouch"
                   ><i class="fa-brands fa-linkedin-in"></i
                 ></a>
               </li>
@@ -236,8 +265,8 @@
             <div class="member_img">
               <img src="./media/member3.png" alt="Besecure Member" />
             </div>
-            <h3 class="member_name">SAIDA BAHRAOUI</h3>
-            <p class="member_profession">Conferences and Workshops Unit</p>
+            <h3 class="member_name">AYMAN ERROUSSI</h3>
+            <p class="member_profession">Technical Lead</p>
             <ul class="member_social_list flex">
               <li class="member_social flex">
                 <a target="_blank" href="mailto:saidabahraoui5@gmail.com">
@@ -246,7 +275,8 @@
               </li>
               <li class="member_social flex">
                 <a
-                  href="https://instagram.com/bahraouisaida?igshid=MzMyNGUyNmU2YQ=="
+                  href=" https://www.instagram.com/ayman_erroussi/
+                  "
                   target="_blank"
                   ><i class="fa-brands fa-instagram"></i
                 ></a>
@@ -254,7 +284,7 @@
               <li class="member_social flex">
                 <a
                   target="_blank"
-                  href="https://www.linkedin.com/in/saida-bahraoui-1675a7245"
+                  href="www.linkedin.com/in/ayman-erroussi "
                   ><i class="fa-brands fa-linkedin-in"></i
                 ></a>
               </li>
@@ -264,8 +294,8 @@
             <div class="member_img">
               <img src="./media/member4.png" alt="Besecure Member" />
             </div>
-            <h3 class="member_name">HOUDA AMSAADI</h3>
-            <p class="member_profession">Media Unit</p>
+            <h3 class="member_name">YOUSSEF AZILI</h3>
+            <p class="member_profession">workshops</p>
             <ul class="member_social_list flex">
               <li class="member_social flex">
                 <a target="_blank" href="mailto:houdaamsaadi709@gmail.com">
@@ -292,8 +322,8 @@
             <div class="member_img">
               <img src="./media/member5.png" alt="Besecure Member" />
             </div>
-            <h3 class="member_name">KAWTAR CHEBLAOUI</h3>
-            <p class="member_profession">Sponsoring Unit</p>
+            <h3 class="member_name">SAMI BOUTOUAR</h3>
+            <p class="member_profession">EXTERNAL RELATIONS UNIT</p>
             <ul class="member_social_list flex">
               <li class="member_social flex">
                 <a target="_blank" href="mailto:chebkawtar4@gmail.com">
@@ -320,8 +350,36 @@
             <div class="member_img">
               <img src="./media/member6.png" alt="Besecure Member" />
             </div>
-            <h3 class="member_name">IMANE BOULAMTAT</h3>
+            <h3 class="member_name">AYOUB BAHADDA</h3>
             <p class="member_profession">Logistics Unit</p>
+            <ul class="member_social_list flex">
+              <li class="member_social flex">
+                <a target="_blank" href="mailto:imane.boulamtat@gmail.com">
+                  <i class="fa-regular fa-envelope"></i
+                ></a>
+              </li>
+              <li class="member_social flex">
+                <a
+                  href="https://instagram.com/imane_bl.1?igshid=NjIwNzIyMDk2Mg=="
+                  target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+              <li class="member_social flex">
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/imane-boulamtat-90890a222"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="member_box flex show_el show_el--top">
+            <div class="member_img">
+              <img src="./media/member7.png" alt="Besecure Member" />
+            </div>
+            <h3 class="member_name">IMANE EL GHAIT</h3>
+            <p class="member_profession">COMMUNICATION Unit</p>
             <ul class="member_social_list flex">
               <li class="member_social flex">
                 <a target="_blank" href="mailto:imane.boulamtat@gmail.com">

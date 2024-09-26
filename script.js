@@ -170,36 +170,96 @@ inputs.forEach((input) => {
   });
 });
 
+ctaForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  joinSubmit.value = "Processing...";
+  joinSubmit.disabled = true;
+
+  // Call the function to process the form and download Excel
+  joinSendEmail();
+
+  joinSubmit.value = "Request Sent Successfully";
+  joinSubmit.disabled = false;
+});
+
+function generateExcel(data, filename) {
+  // Create a new workbook
+  const wb = XLSX.utils.book_new();
+
+  // Convert the data into a worksheet
+  const ws = XLSX.utils.json_to_sheet(data);
+
+  // Append the worksheet to the workbook
+  XLSX.utils.book_append_sheet(wb, ws, "Join Requests");
+
+  // Create Excel file and trigger download
+  XLSX.writeFile(wb, filename);
+}
 // Email Sending
 
-const showPopup = function (joinSubmit, msg, params) {
-  const serviceID = "service_5t4tdv7";
-  const templateID = "template_dtff8up";
-  emailjs.send(serviceID, templateID, params).then((res) => {
-    joinSubmit.value = msg;
-    thanksPopup.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-    overlay.classList.add("overlay--active");
-  });
+const showPopup = function (submitButton, successMsg, errorMsg, params) {
+  const serviceID = "service_bumu1h2";  // Ensure this is correct
+  const templateID = "template_z398mr8"; // Ensure this is correct
+
+  emailjs.send(serviceID, templateID, params)
+    .then((res) => {
+      submitButton.value = successMsg;
+      submitButton.disabled = false;
+      thanksPopup.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+      overlay.classList.add("overlay--active");
+    })
+    .catch((err) => {
+      submitButton.value = errorMsg;
+      submitButton.disabled = false;
+      console.error("Failed to send email:", err);
+    });
 };
+
 
 function joinSendEmail() {
   const msg = `Join Request from ${joinFname.value}
-        First Name: ${joinFname.value}
-        Last Name: ${joinLname.value}
-        Year: ${joinYear.value}
-        Email: ${joinEmail.value}
-        Phone number: ${joinPhone.value}`;
+    First Name: ${joinFname.value}
+    Last Name: ${joinLname.value}
+    Year: ${joinYear.value}
+    Email: ${joinEmail.value}
+    Phone number: ${joinPhone.value}`;
 
-  var params = {
+  const params = {
     name: joinFname.value,
     email: joinEmail.value,
     subject: "Joining B-Secure",
     message: msg,
   };
-  showPopup(joinSubmit, "Request To Join", params);
+  const data = [];
+  data.push(formData);
+  generateExcel(data, "join_requests.xlsx");
+
+  showPopup(joinSubmit, "Request Sent Successfully", "Failed to Send Request", params);
+  
+  // Reset the form fields after submission
   joinFname.value = joinLname.value = joinEmail.value = joinPhone.value = "";
 }
+
+function contactSendEmail() {
+  const msg = `Message from ${contactFname.value}
+    First Name: ${contactFname.value}
+    Last Name: ${contactLname.value}
+    Email: ${contactEmail.value}
+    Message: ${contactMessage.value}`;
+
+  const params = {
+    name: contactFname.value,
+    email: contactEmail.value,
+    subject: contactSubject.value,
+    message: msg,
+  };
+
+  showPopup(contactSubmit, "Message Sent Successfully", "Failed to Send Message", params);
+  // Reset the form fields after submission
+  contactFname.value = contactLname.value = contactEmail.value = contactSubject.value = contactMessage.value = "";
+}
+
 ctaForm.addEventListener("submit", function (e) {
   e.preventDefault();
   joinSubmit.value = "Processing...";
@@ -213,12 +273,16 @@ function contactSendEmail() {
         Email: ${contactEmail.value}
         Message: ${contactMessage.value}`;
 
-  var params = {
-    name: contactFname.value,
-    email: contactEmail.value,
-    subject: contactSubject.value,
-    message: msg,
-  };
+        var params = {
+          to_name: "B-Secure Admin",  // Or dynamically set this if needed
+          from_name: `${joinFname.value} ${joinLname.value}`,
+          first_name: joinFname.value,
+          last_name: joinLname.value,
+          education_level: joinYear.value,
+          email: joinEmail.value,
+          phone: joinPhone.value
+        };
+        
   showPopup(contactSubmit, "Send Message", params);
   contactFname.value =
     contactLname.value =
