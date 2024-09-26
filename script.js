@@ -122,19 +122,19 @@ if (mediaQuery1.matches) {
   <p class="member_profession">Club President</p>
   <ul class="member_social_list flex">
     <li class="member_social flex">
-      <a href="mailto:mohamedchadly2021@gmail.com">
+      <a href="mailto:Oussamafannouch@gmail.com">
         <i class="fa-regular fa-envelope"></i
       ></a>
     </li>
     <li class="member_social flex">
       <a
-        href="https://www.instagram.com/mohamed_chadlyy/"
+        href="https://www.instagram.com/oussamafannouch"
         target="_blank"
         ><i class="fa-brands fa-instagram"></i
       ></a>
     </li>
     <li class="member_social flex">
-      <a href="https://www.linkedin.com/in/mohamed-chadly-74ab54222/"
+      <a href="https://www.linkedin.com/in/oussamafannouch"
         ><i class="fa-brands fa-linkedin-in"></i
       ></a>
     </li>
